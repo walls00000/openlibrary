@@ -1,12 +1,19 @@
 package com.jolratf;
 
+import java.util.Arrays;
+import java.util.List;
 import java.util.Map;
+
+import org.hamcrest.Matcher;
 
 public class GetProvider {
 	private Map<String,String> headers;
 	private String target;
 	private int statusCode;
+	private Matcher<?> matcher;
+	private Matcher<?>[] additionalMatchers;
 	private Object pojo;
+	
 	public Map<String, String> getHeaders() {
 		return headers;
 	}
@@ -35,6 +42,27 @@ public class GetProvider {
 	public static Builder builder() {
 		return new Builder();
 	}
+	public Matcher<?> getMatcher() {
+		return matcher;
+	}
+	public void setMatcher(Matcher<?> matcher) {
+		this.matcher = matcher;
+	}
+	public Matcher<?>[] getAdditionalMatchers() {
+		return additionalMatchers;
+	}
+	public void setAdditionalMatchers(Matcher<?>[] additionalMatchers) {
+		this.additionalMatchers = additionalMatchers;
+	}
+	@Override
+	public String toString() {
+		return "GetProvider [headers=" + headers + ", target=" + target + ", statusCode=" + statusCode + ", matcher="
+				+ matcher + ", additionalMatchers=" + Arrays.toString(additionalMatchers) + ", pojo=" + pojo + "]";
+	}
+	
+	
+	
+	
 }
 class Builder {
 	private final GetProvider provider;
@@ -57,9 +85,17 @@ class Builder {
 		provider.setPojo(pojo);
 		return this;
 	}
+	public Builder matcher(final Matcher<?> matcher) {
+		provider.setMatcher(matcher);
+		return this;
+	}
+	public Builder additionalMatchers(final Matcher<?>... matchers) {
+		provider.setAdditionalMatchers(matchers);
+		return this;
+	}
 	public GetProvider build() {
 		return provider;
 	}
-	
+
 	
 }

@@ -13,6 +13,7 @@ import com.fasterxml.jackson.databind.JsonMappingException;
 public class TestClass1 {
 	
 	@Test(description = "test GET with matcher") 
+	
 	public void test2() {
 		RestService service = new RestService();
 	    final Map<String,String> headers = new HashMap<String,String>();
@@ -23,7 +24,7 @@ public class TestClass1 {
 	    final int statusCode = 200;
 	    Matcher<String> matcher1 = org.hamcrest.Matchers.containsString("Sachi Rautroy");
 	    Matcher<String> matcher2 = org.hamcrest.Matchers.containsString("2004");
-		service.get(headers, target, statusCode, matcher1, matcher2);
+		service.getWithMatcher(headers, target, statusCode, matcher1, matcher2);
 	}
 	
 	@Test(description = "Test GET with  schema validaton")

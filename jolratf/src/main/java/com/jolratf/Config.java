@@ -9,4 +9,17 @@ public class Config {
 	public Config() {
 //		RestAssured.useRelaxedHTTPSValidation();
 	}
+	public int getPort() {
+		return port;
+	}
+	public void setPort(int port) {
+		this.port = port;
+	}
+	public String getBaseUrl() {
+		return baseUrl;
+	}
+	public void setBaseUrl(String baseUrl) {
+		this.baseUrl = baseUrl;
+	}
+	
 }

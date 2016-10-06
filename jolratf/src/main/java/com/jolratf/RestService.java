@@ -15,7 +15,7 @@ import com.jolratf.json.Author;
 
 public class RestService extends Config {
 	
-	public Response get(final Map<String,String> headers, final String target, final int statusCode, final Matcher<?> matcher, Matcher<?> ...additionalMatchers) {
+	public Response getWithMatcher(final Map<String,String> headers, final String target, final int statusCode, final Matcher<?> matcher, Matcher<?> ...additionalMatchers) {
 	    System.out.println(baseUrl + target);
 		Response response = 
 	    given().port(port).

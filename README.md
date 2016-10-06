@@ -9,6 +9,7 @@ Testing tools
 -------------
 
   * REST Client for Chrome: http://chromerestclient.appspot.com/
+  * Burp Suite https://portswigger.net/burp/
   * TestNG 
     1. http://testng.org/doc/eclipse.html#eclipse-create-launch
     2. http://testng.org/doc/index.html
